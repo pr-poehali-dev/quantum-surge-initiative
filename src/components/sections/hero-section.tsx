@@ -7,7 +7,11 @@ const images = [
   "/modern-ui-design-portfolio-mockup.jpg",
 ]
 
-export function HeroSection() {
+interface HeroSectionProps {
+  onBooking?: (service?: string) => void
+}
+
+export function HeroSection({ onBooking }: HeroSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -84,6 +88,13 @@ export function HeroSection() {
           <p className="text-lg md:text-xl text-foreground/70 mix-blend-difference mt-4 font-sans">
             Фотостудия · Видеосъёмка · Печать фотографий
           </p>
+          <button
+            onClick={() => onBooking?.()}
+            className="mt-6 bg-foreground text-background px-8 py-3 rounded-full font-medium hover:bg-foreground/90 transition-colors pointer-events-auto"
+            data-clickable
+          >
+            Записаться
+          </button>
         </div>
       </motion.div>
 

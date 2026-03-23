@@ -62,7 +62,11 @@ const plans = [
   },
 ]
 
-export function PricingSection() {
+interface PricingSectionProps {
+  onBooking?: (service?: string) => void
+}
+
+export function PricingSection({ onBooking }: PricingSectionProps) {
   return (
     <section className="bg-secondary px-6 py-24">
       <div className="max-w-6xl mx-auto">
@@ -112,6 +116,7 @@ export function PricingSection() {
               </ul>
 
               <button
+                onClick={() => onBooking?.(plan.name)}
                 className={`w-full mt-8 py-3 px-6 rounded-lg font-medium transition-colors ${
                   plan.popular
                     ? "bg-primary text-primary-foreground hover:bg-primary/90"

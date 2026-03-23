@@ -79,7 +79,11 @@ function PrintIndicator() {
   )
 }
 
-export function FeaturesSection() {
+interface FeaturesSectionProps {
+  onBooking?: (service?: string) => void
+}
+
+export function FeaturesSection({ onBooking }: FeaturesSectionProps) {
   return (
     <section className="bg-background px-6 py-24">
       <div className="max-w-6xl mx-auto">
@@ -109,6 +113,7 @@ export function FeaturesSection() {
             <div className="mt-4">
               <h3 className="font-serif text-xl text-foreground">Фотосессии</h3>
               <p className="text-muted-foreground text-sm mt-1">Портретные, свадебные, семейные, рекламные — от 5 000 ₽/час.</p>
+              <button onClick={() => onBooking?.("Портретная фотосессия")} className="mt-3 text-sm text-primary hover:underline">Записаться →</button>
             </div>
           </motion.div>
 
@@ -128,6 +133,7 @@ export function FeaturesSection() {
             <div className="mt-4">
               <h3 className="font-serif text-xl text-foreground">Видеосъёмка</h3>
               <p className="text-muted-foreground text-sm mt-1">Клипы, интервью, репортажи, выездная съёмка — от 3 000 ₽.</p>
+              <button onClick={() => onBooking?.("Видеосъёмка мероприятия")} className="mt-3 text-sm text-primary hover:underline">Записаться →</button>
             </div>
           </motion.div>
 
@@ -147,6 +153,7 @@ export function FeaturesSection() {
             <div className="mt-4">
               <h3 className="font-serif text-xl text-foreground">Печать фотографий</h3>
               <p className="text-muted-foreground text-sm mt-1">Форматы А4, А3, А5, 10×15 — от 25 ₽ за лист.</p>
+              <button onClick={() => onBooking?.("Печать фотографий")} className="mt-3 text-sm text-primary hover:underline">Заказать →</button>
             </div>
           </motion.div>
         </div>
