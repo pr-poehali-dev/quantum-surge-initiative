@@ -22,7 +22,7 @@ export function CarouselSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          Создано авторами для авторов.
+          Ваши воспоминания — в надёжных руках.
         </motion.h2>
       </div>
 
